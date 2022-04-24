@@ -26,6 +26,8 @@ Paragraph default: 1.6
 - Tints: 
 #fdf2e9
 #fae5d3
+#eb984e
+
 - Shades: #cf711f
 - Accents:
 - Greys:
@@ -34,6 +36,8 @@ Paragraph default: 1.6
 #333
 
 ---05 SHADOWS
+
+box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
 
 ---06 BORDER-RADIUS
 
@@ -87,6 +91,17 @@ body {
     column-gap: 9.4rem;
     row-gap: 9.6rem;
 
+    /* margin-bottom: 9.6rem; */
+
+}
+
+.grid:last-child {
+    /* margin-bottom: 0; */
+
+}
+
+.grid:not(:last-child) {
+    margin-bottom: 9.6rem;
 }
 
 .grid--2-cols {
@@ -102,7 +117,10 @@ body {
     gap: 9.6rem;
 }
 
-/* .grid--4-cols {} */
+.grid--4-cols {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
 
 .grid--center-v {
     align-items: center;
@@ -632,15 +650,38 @@ strong {
 }
 
 .pricing-plan {
-    background-color: #fdf2e9;
     border-radius: 11px;
-    padding: 4.8rem;
     width: 75%;
 
 }
 
 .pricing-plan--starter {
     justify-self: end;
+    border: 2px solid #fdf2e9;
+    padding: 4.6rem;
+}
+
+.pricing-plan--complete {
+    background-color: #fdf2e9;
+    padding: 4.8rem;
+    position: relative;
+    overflow: hidden;
+
+}
+
+.pricing-plan--complete::after {
+    content: "Best value";
+    position: absolute;
+    top: 6%;
+    right: -18%;
+
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    background-color: #ffd43b;
+    padding: 0.8rem 8rem;
+    transform: rotate(45deg);
 }
 
 .plan-header {
@@ -681,4 +722,85 @@ strong {
 .plan-sign-up {
     text-align: center;
     margin-top: 4.8rem;
+}
+
+.plan-details {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    text-align: center;
+
+}
+
+.feature-icon {
+    color: #e67e22;
+    height: 3.2rem;
+    width: 3.2rem;
+    background-color: #fdf2e9;
+    border-radius: 50%;
+    padding: 1.6rem;
+    margin-bottom: 3.2rem;
+}
+
+.feature-title {
+    font-size: 2.4rem;
+    color: #333;
+    font-weight: 700;
+    margin-bottom: 1.6rem;
+}
+
+.feature-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+
+}
+
+/**************************/
+/* SECTION CTA */
+/**************************/
+.section-cta {
+    padding: 9.6rem 0;
+}
+
+.cta {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    /* background-color: #e67e22; */
+    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
+    border-radius: 11px;
+
+    background-image: linear-gradient(to right bottom, #eb984e, #e67e22);
+    /* temp*/
+    height: 50rem;
+    overflow: hidden;
+}
+
+.cta-text-box {
+    padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+    color: #45260a;
+}
+
+.cta .heading-secondary {
+    color: #45260a;
+    margin-bottom: 3.2rem;
+}
+
+.cta-text {
+    font-size: 1.8rem;
+    line-height: 1.8;
+    margin-bottom: 4.8rem;
+}
+
+.cta-img-box {
+    background-image: linear-gradient(to right bottom, rgba(235, 151, 78, 0.35), rgba(230, 125, 34, 0.35)), url("../img/eating.jpg");
+    background-size: cover;
+    background-position: center;
+
+}
+
+.cta-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3.2rem;
+    row-gap: 2.4rem;
+
 }
